@@ -4,6 +4,7 @@ export const cardInitial = {
 }
 
 export const initialState = {
+  matches: 0,
   tries: 0,
   winner: false,
   loading: true,
