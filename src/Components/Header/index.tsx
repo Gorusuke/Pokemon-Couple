@@ -1,11 +1,12 @@
 import { useContext } from 'react'
 import { PokemonContext } from '../../Context/PokemonContext'
+import { pokemonsData } from '../../Info/pokemonContent.json'
+import { shuffleArray } from '../../Utils/shuffleArray'
 
 import './styles.css'
-import { images } from '../../Info/pokemonContent'
 
 const Header = () => {
-  const { tries, dispatch, shuffleArray } = useContext(PokemonContext)
+  const { tries, dispatch, setBaraja } = useContext(PokemonContext)
 
   return (
     <header>
@@ -13,17 +14,16 @@ const Header = () => {
         <button
           className="button-reset"
           onClick={() => {
-            // TODO: modificar barajas por eso no funciona! (Board)
-            shuffleArray(images)
+            setBaraja(shuffleArray(pokemonsData))
             dispatch({ type: 'RESET_GAME' })
           }}
         >
-          Reiniciar
+          Reset Game
         </button>
       </div>
-      <div className="title">React - Parejas</div>
+      <div className="title">Pokemon - Couple</div>
       <div className="try">
-        tries: <b>{tries}</b>
+        Attempts: <b>{tries}</b>
       </div>
     </header>
   )
