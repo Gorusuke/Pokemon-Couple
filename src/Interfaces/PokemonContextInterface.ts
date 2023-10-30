@@ -16,6 +16,7 @@ export interface Deck {
 export type CardNumber = [number, number]
 
 export interface PokemonContextInterface {
+  matches: number
   tries: number
   winner: boolean
   loading: boolean
@@ -32,5 +33,4 @@ export interface CardProps {
   pokemon: Deck
   flipCard: (name: string, number: number) => number
   unflippedCards: CardNumber
-  disabledCards: CardNumber
 }
