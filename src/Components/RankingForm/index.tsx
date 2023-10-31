@@ -19,7 +19,7 @@ const RankingForm = () => {
       setError(true)
       return
     }
-    dispatch({ type: ACTIONS.SHOW_RANKING })
+    dispatch({ type: ACTIONS.SHOW_RANKING, payload: { name: '', number: 0 } })
     setError(false)
   }
 

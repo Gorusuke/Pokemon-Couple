@@ -1,13 +1,10 @@
-import { SyntheticEvent } from 'react'
+import { SyntheticEvent, Dispatch } from 'react'
 export interface Cards {
   name: string
   number: number
 }
 
-export interface Action {
-  type: string
-  payload?: Cards
-}
+export type Action = { type: string, payload: Cards }
 
 export interface Deck {
   name: string
@@ -24,7 +21,7 @@ export interface PokemonContextInterface {
   firstCard: Cards
   secondCard: Cards
   deck: Deck[]
-  dispatch: (arg: Action) => void
+  dispatch: Dispatch<Action>
   setDeck: (arg: Deck[]) => void
   showRanking: boolean
   showForm: boolean

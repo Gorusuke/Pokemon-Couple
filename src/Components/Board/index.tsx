@@ -26,18 +26,18 @@ const Board = () => {
 
   const checkForMatch = () => {
     if (firstCard.name && secondCard.name) {
-      dispatch({ type: ACTIONS.UPDATE_TRIES })
+      dispatch({ type: ACTIONS.UPDATE_TRIES, payload: { name: '', number: 0 } })
       const hasMatch = firstCard.name === secondCard.name
-      hasMatch ? dispatch({ type: ACTIONS.RESET_CARDS }) : unflipCard()
+      hasMatch ? dispatch({ type: ACTIONS.RESET_CARDS, payload: { name: '', number: 0 } }) : unflipCard()
     }
   }
 
   const getAttempts = () => {
     if (firstCard.name && secondCard.name) {
       const hasMatch = firstCard.name === secondCard.name
-      if (hasMatch) dispatch({ type: ACTIONS.UPDATE_MATCHES })
+      if (hasMatch) dispatch({ type: ACTIONS.UPDATE_MATCHES, payload: { name: '', number: 0 } })
       if (matches === 19) {
-        dispatch({ type: ACTIONS.UPDATE_WINNER })
+        dispatch({ type: ACTIONS.UPDATE_WINNER, payload: { name: '', number: 0 } })
         confetti()
         confetti()
         confetti()
@@ -47,7 +47,7 @@ const Board = () => {
 
   const unflipCard = () => {
     setUnflippedCards([firstCard.number, secondCard.number])
-    dispatch({ type: ACTIONS.RESET_CARDS })
+    dispatch({ type: ACTIONS.RESET_CARDS, payload: { name: '', number: 0 } })
   }
 
   return (

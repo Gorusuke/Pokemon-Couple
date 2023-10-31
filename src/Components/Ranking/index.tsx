@@ -77,7 +77,7 @@ const Ranking = () => {
         text='Exit'
         handleClick={() => {
           setDeck(shuffleArray(pokemonsData))
-          dispatch({ type: ACTIONS.RESET_GAME })
+          dispatch({ type: ACTIONS.RESET_GAME, payload: { name: '', number: 0 } })
         }}
       />
     </div>

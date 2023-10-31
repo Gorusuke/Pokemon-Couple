@@ -15,7 +15,7 @@ const Header = () => {
         className="button-reset"
         onClick={() => {
           setDeck(shuffleArray(pokemonsData))
-          dispatch({ type: ACTIONS.RESET_GAME })
+          dispatch({ type: ACTIONS.RESET_GAME, payload: { name: '', number: 0 } })
         }}
       >
         Reset Game

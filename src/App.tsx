@@ -19,7 +19,7 @@ function App () {
         <>
           <Header />
           <Board />
-          <Button text='Show Ranking' handleClick={() => dispatch({ type: ACTIONS.SHOW_RANKING })} />
+          <Button text='Show Ranking' handleClick={() => dispatch({ type: ACTIONS.SHOW_RANKING, payload: { name: '', number: 0 } })} />
         </>
       }
       {winner && !showRanking && !showForm && <WinnerModal />}

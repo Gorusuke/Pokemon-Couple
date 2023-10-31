@@ -26,19 +26,19 @@ const WinnerModal = () => {
           <Button
             showClassName
             text='Save Score'
-            handleClick={() => dispatch({ type: ACTIONS.SHOW_FORM })}
+            handleClick={() => dispatch({ type: ACTIONS.SHOW_FORM, payload: { name: '', number: 0 } })}
           />
           <div className='container-buttons'>
             <Button
               showClassName
               text='Show Ranking'
-              handleClick={() => dispatch({ type: ACTIONS.SHOW_RANKING })} />
+              handleClick={() => dispatch({ type: ACTIONS.SHOW_RANKING, payload: { name: '', number: 0 } })} />
             <Button
               showClassName
               text='Play Again'
               handleClick={() => {
                 setDeck(shuffleArray(pokemonsData))
-                dispatch({ type: ACTIONS.RESET_GAME })
+                dispatch({ type: ACTIONS.RESET_GAME, payload: { name: '', number: 0 } })
               }}
             />
           </div>
