@@ -8,8 +8,7 @@ export const shuffleArray = (deck: Deck[]) => {
     const pokemons = [...deck]
       .sort(() => 0.5 - Math.random())
       .slice(0, 20)
-    // pokemonDeck = [...pokemons, ...pokemons].sort(() => Math.random() - 0.5)
-    pokemonDeck = [...pokemons, ...pokemons]
+    pokemonDeck = [...pokemons, ...pokemons].sort(() => Math.random() - 0.5)
   }
   return pokemonDeck
 }

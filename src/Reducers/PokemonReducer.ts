@@ -1,60 +1,73 @@
 import { Action, PokemonContextInterface } from '../Interfaces/PokemonContextInterface'
-import { cardInitial, initialState } from '../contants'
+import { ACTIONS, cardInitial, initialState } from '../contants'
 
 export const PokemonReducer = (state: PokemonContextInterface, action: Action) => {
-  if (action.type === 'UPDATE_TRIES') {
-    return {
-      ...state,
-      tries: state.tries + 1
-    }
-  }
+  switch (action.type) {
+    case ACTIONS.UPDATE_TRIES:
+      return {
+        ...state,
+        tries: state.tries + 1
+      }
 
-  if (action.type === 'UPDATE_LOADING') {
-    return {
-      ...state,
-      loading: false
-    }
-  }
+    case ACTIONS.UPDATE_MATCHES:
+      return {
+        ...state,
+        matches: state.matches + 1
+      }
 
-  if (action.type === 'UPDATE_WINNER') {
-    return {
-      ...state,
-      winner: true
-    }
-  }
+    case ACTIONS.UPDATE_LOADING:
+      return {
+        ...state,
+        loading: false
+      }
 
-  if (action.type === 'RESET_CARDS') {
-    return {
-      ...state,
-      firstCard: cardInitial,
-      secondCard: cardInitial
-    }
-  }
+    case ACTIONS.RESET_CARDS:
+      return {
+        ...state,
+        firstCard: cardInitial,
+        secondCard: cardInitial
+      }
 
-  if (action.type === 'RESET_GAME') {
-    return initialState
-  }
+    case ACTIONS.RESET_GAME:
+      return initialState
 
-  if (action.type === 'UPDATE_FIRST_CARD') {
-    return {
-      ...state,
-      firstCard: action.payload
-    }
-  }
+    case ACTIONS.UPDATE_FIRST_CARD:
+      return {
+        ...state,
+        firstCard: action.payload
+      }
 
-  if (action.type === 'UPDATE_SECOND_CARD') {
-    return {
-      ...state,
-      secondCard: action.payload
-    }
-  }
+    case ACTIONS.UPDATE_SECOND_CARD:
+      return {
+        ...state,
+        secondCard: action.payload
+      }
 
-  if (action.type === 'SHOW_RANKING') {
-    return {
-      ...state,
-      showRanking: true
-    }
-  }
+    case ACTIONS.SHOW_RANKING:
+      return {
+        ...state,
+        showRanking: true,
+        showForm: false,
+        winner: false
+      }
 
-  return state
+    case ACTIONS.UPDATE_WINNER:
+      return {
+        ...state,
+        winner: true,
+        showForm: false,
+        showRanking: false
+      }
+
+    case ACTIONS.SHOW_FORM:
+      return {
+        ...state,
+        showForm: true,
+        showRanking: false,
+        winner: false
+      }
+
+    default:
+      return state
+  }
 }
