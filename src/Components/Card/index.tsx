@@ -22,7 +22,7 @@ const Card = ({ number, pokemon, flipCard, unflippedCards }: CardProps) => {
   }
 
   return (
-    <div className="carta" onClick={handleClick}>
+    <div className="deck" onClick={handleClick}>
       <ReactCardFlip isFlipped={isFlipped}>
         <div className="front"></div>
         <div className="back">
