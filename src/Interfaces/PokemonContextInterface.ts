@@ -1,3 +1,4 @@
+import { SyntheticEvent } from 'react'
 export interface Cards {
   name: string
   number: number
@@ -22,10 +23,11 @@ export interface PokemonContextInterface {
   loading: boolean
   firstCard: Cards
   secondCard: Cards
-  baraja: Deck[]
+  deck: Deck[]
   dispatch: (arg: Action) => void
-  setBaraja: (arg: Deck[]) => void
+  setDeck: (arg: Deck[]) => void
   showRanking: boolean
+  showForm: boolean
 }
 
 export interface CardProps {
@@ -33,4 +35,10 @@ export interface CardProps {
   pokemon: Deck
   flipCard: (name: string, number: number) => number
   unflippedCards: CardNumber
+}
+
+export interface ButtonProps {
+  handleClick: (event?: SyntheticEvent | undefined) => void,
+  text: string,
+  showClassName?: boolean
 }

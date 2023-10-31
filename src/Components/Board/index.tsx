@@ -6,7 +6,7 @@ import Card from '../Card'
 import './styles.css'
 
 const Board = () => {
-  const { dispatch, firstCard, secondCard, baraja, matches } = useContext(PokemonContext)
+  const { dispatch, firstCard, secondCard, deck, matches } = useContext(PokemonContext)
   const [unflippedCards, setUnflippedCards] = useState<CardNumber>([] as unknown as CardNumber)
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Board = () => {
 
   return (
     <div className="table">
-      {baraja.map((pokemon, index) => (
+      {deck.map((pokemon, index) => (
         <Card
           key={`${pokemon.name}-${index}`}
           number={index}

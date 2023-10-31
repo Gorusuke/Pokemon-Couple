@@ -7,7 +7,7 @@ import { pokemonsData } from '../../Info/pokemonContent.json'
 import './styles.css'
 
 const WinnerModal = () => {
-  const { tries, dispatch, setBaraja } = useContext(PokemonContext)
+  const { tries, dispatch, setDeck } = useContext(PokemonContext)
   return (
     <div className="container">
       <div className="modal">
@@ -25,7 +25,7 @@ const WinnerModal = () => {
           <Button
             showClassName
             text='Save Score'
-            handleClick={() => { }}
+            handleClick={() => dispatch({ type: 'SHOW_FORM' })}
           />
           <div className='container-buttons'>
             <Button
@@ -36,7 +36,7 @@ const WinnerModal = () => {
               showClassName
               text='Play Again'
               handleClick={() => {
-                setBaraja(shuffleArray(pokemonsData))
+                setDeck(shuffleArray(pokemonsData))
                 dispatch({ type: 'RESET_GAME' })
               }}
             />

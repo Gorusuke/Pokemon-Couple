@@ -4,6 +4,7 @@ export const cardInitial = {
 }
 
 export const initialState = {
+  showForm: false,
   matches: 0,
   tries: 0,
   winner: false,
@@ -11,7 +12,7 @@ export const initialState = {
   showRanking: false,
   firstCard: cardInitial,
   secondCard: cardInitial,
-  baraja: [],
+  deck: [],
   dispatch: () => {},
-  setBaraja: () => {}
+  setDeck: () => {}
 }

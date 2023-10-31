@@ -1,9 +1,7 @@
+import { ButtonProps } from '../../Interfaces/PokemonContextInterface'
 import './styles.css'
 
-export const Button = (
-  { handleClick, text, showClassName }:
-  { handleClick: () => void, text: string, showClassName?: boolean }
-) => {
+export const Button = ({ handleClick, text, showClassName }: ButtonProps) => {
   return (
     <div className={!showClassName ? 'home-button-container' : ''}>
       <button
