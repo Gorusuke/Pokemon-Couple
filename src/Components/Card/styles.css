@@ -1,4 +1,4 @@
-.carta{
+.deck{
     width: 100px;
     height: 100px;
 }
@@ -31,9 +31,9 @@
     width: 100%;
 }
 
-@media(max-width: 1024px){
+/* @media(max-width: 1024px){
 
-    .carta{
+    .deck{
         width: 85px;
         height: 85px;
         margin: 5px;
@@ -52,7 +52,7 @@
 
 @media(max-width: 768px){
 
-    .carta{
+    .deck{
         width: 70px;
         height: 70px;
         margin: 5px;
@@ -71,7 +71,7 @@
 
 @media(max-width: 425px){
 
-    .carta{
+    .deck{
         width: 58px;
         height: 58px;
         margin: 4px 3px;
@@ -87,4 +87,4 @@
         height: 58px;
     }
 
-}
+} */

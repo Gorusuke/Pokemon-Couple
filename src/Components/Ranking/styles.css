@@ -3,11 +3,9 @@
   height: 100vh;
   display: grid;
   place-content: center;
-  /* background-color: #0006; */
   background-color: #002;
   position: fixed;
   z-index: 1;
-  margin: 0 auto;
   top: 0;
   left: 0;
 }
@@ -19,9 +17,16 @@
   background-color: white;
 }
 
-.ranking-position h2{
+.ranking-position .score{
   text-align: center;
   margin-bottom: 20px;
+}
+
+.ranking-position .no-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .button-container{

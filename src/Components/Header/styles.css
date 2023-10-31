@@ -8,15 +8,12 @@ header{
     margin-bottom: 3rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-radius: 10px;
 }
 
-.reset-button{
-    display: flex;
-    align-items: center;
-}
-
 .button-reset{
+    height: fit-content;
     color: #ff0000;
     padding: 5px 10px;
     background-color: transparent;
@@ -42,7 +39,7 @@ header{
     margin-left: 5px;
 }
 
-@media(max-width: 425px){
+/* @media(max-width: 425px){
 
     header{
         width: 90%;
@@ -65,4 +62,4 @@ header{
         font-size: 10px;
     }
 
-}
+} */
