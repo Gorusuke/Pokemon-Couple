@@ -4,6 +4,7 @@ import { pokemonsData } from '../../Info/pokemonContent.json'
 import { shuffleArray } from '../../Utils/shuffleArray'
 
 import './styles.css'
+import { ACTIONS } from '../../contants'
 
 const Header = () => {
   const { tries, dispatch, setDeck } = useContext(PokemonContext)
@@ -14,7 +15,7 @@ const Header = () => {
         className="button-reset"
         onClick={() => {
           setDeck(shuffleArray(pokemonsData))
-          dispatch({ type: 'RESET_GAME' })
+          dispatch({ type: ACTIONS.RESET_GAME })
         }}
       >
         Reset Game

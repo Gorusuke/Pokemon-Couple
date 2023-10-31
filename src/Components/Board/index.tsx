@@ -1,9 +1,11 @@
 import { useState, useEffect, useContext } from 'react'
 import { PokemonContext } from '../../Context/PokemonContext'
 import { CardNumber } from '../../Interfaces/PokemonContextInterface'
+import confetti from 'canvas-confetti'
 import Card from '../Card'
 
 import './styles.css'
+import { ACTIONS } from '../../contants'
 
 const Board = () => {
   const { dispatch, firstCard, secondCard, deck, matches } = useContext(PokemonContext)
@@ -17,30 +19,35 @@ const Board = () => {
 
   const cardFlip = (name: string, number: number) => {
     if (firstCard.name === name && firstCard.number === number) return 0
-    if (!firstCard.name) dispatch({ type: 'UPDATE_FIRST_CARD', payload: { name, number } })
-    else if (!secondCard.name) dispatch({ type: 'UPDATE_SECOND_CARD', payload: { name, number } })
+    if (!firstCard.name) dispatch({ type: ACTIONS.UPDATE_FIRST_CARD, payload: { name, number } })
+    else if (!secondCard.name) dispatch({ type: ACTIONS.UPDATE_SECOND_CARD, payload: { name, number } })
     return 1
   }
 
   const checkForMatch = () => {
     if (firstCard.name && secondCard.name) {
-      dispatch({ type: 'UPDATE_TRIES' })
+      dispatch({ type: ACTIONS.UPDATE_TRIES })
       const hasMatch = firstCard.name === secondCard.name
-      hasMatch ? dispatch({ type: 'RESET_CARDS' }) : unflipCard()
+      hasMatch ? dispatch({ type: ACTIONS.RESET_CARDS }) : unflipCard()
     }
   }
 
   const getAttempts = () => {
     if (firstCard.name && secondCard.name) {
       const hasMatch = firstCard.name === secondCard.name
-      if (hasMatch) dispatch({ type: 'UPDATE_MATCHES' })
-      if (matches === 19) dispatch({ type: 'UPDATE_WINNER' })
+      if (hasMatch) dispatch({ type: ACTIONS.UPDATE_MATCHES })
+      if (matches === 19) {
+        dispatch({ type: ACTIONS.UPDATE_WINNER })
+        confetti()
+        confetti()
+        confetti()
+      }
     }
   }
 
   const unflipCard = () => {
     setUnflippedCards([firstCard.number, secondCard.number])
-    dispatch({ type: 'RESET_CARDS' })
+    dispatch({ type: ACTIONS.RESET_CARDS })
   }
 
   return (

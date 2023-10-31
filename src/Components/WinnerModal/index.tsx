@@ -5,6 +5,7 @@ import { shuffleArray } from '../../Utils/shuffleArray'
 import { pokemonsData } from '../../Info/pokemonContent.json'
 
 import './styles.css'
+import { ACTIONS } from '../../contants'
 
 const WinnerModal = () => {
   const { tries, dispatch, setDeck } = useContext(PokemonContext)
@@ -25,19 +26,19 @@ const WinnerModal = () => {
           <Button
             showClassName
             text='Save Score'
-            handleClick={() => dispatch({ type: 'SHOW_FORM' })}
+            handleClick={() => dispatch({ type: ACTIONS.SHOW_FORM })}
           />
           <div className='container-buttons'>
             <Button
               showClassName
               text='Show Ranking'
-              handleClick={() => dispatch({ type: 'SHOW_RANKING' })} />
+              handleClick={() => dispatch({ type: ACTIONS.SHOW_RANKING })} />
             <Button
               showClassName
               text='Play Again'
               handleClick={() => {
                 setDeck(shuffleArray(pokemonsData))
-                dispatch({ type: 'RESET_GAME' })
+                dispatch({ type: ACTIONS.RESET_GAME })
               }}
             />
           </div>

@@ -8,6 +8,7 @@ import { Button } from './Components/Button'
 import { PokemonContext } from './Context/PokemonContext'
 
 import './App.css'
+import { ACTIONS } from './contants'
 
 function App () {
   const { showRanking, winner, dispatch, showForm } = useContext(PokemonContext)
@@ -18,7 +19,7 @@ function App () {
         <>
           <Header />
           <Board />
-          <Button text='Show Ranking' handleClick={() => dispatch({ type: 'SHOW_RANKING' })} />
+          <Button text='Show Ranking' handleClick={() => dispatch({ type: ACTIONS.SHOW_RANKING })} />
         </>
       }
       {winner && !showRanking && !showForm && <WinnerModal />}
