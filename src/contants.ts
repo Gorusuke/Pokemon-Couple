@@ -29,3 +29,5 @@ export const ACTIONS = {
   UPDATE_WINNER: 'UPDATE_WINNER',
   SHOW_FORM: 'SHOW_FORM'
 }
+
+export const ENTER = 'Enter'

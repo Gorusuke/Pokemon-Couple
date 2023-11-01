@@ -41,6 +41,10 @@ export interface ButtonProps {
 }
 
 export interface AddScore {
-  inputValue: string
-  tries: number
+  name: string
+  score: number
+}
+
+export interface ListOfRankingProps {
+  listOfRanking: AddScore[]
 }
