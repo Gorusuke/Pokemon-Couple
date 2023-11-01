@@ -1,26 +1,28 @@
 import { useContext, useState, SyntheticEvent } from 'react'
 import { Button } from '../Button'
 import { PokemonContext } from '../../Context/PokemonContext'
-// import firebase from '../firebase/firebase'
-// import 'firebase/firestore'
+import { db } from '../../firebase/firebaseConfig'
+import { ACTIONS } from '../../contants'
+import { addScoreInFirebase } from '../../firebase/utils'
 
 import './styles.css'
-import { ACTIONS } from '../../contants'
 
 const RankingForm = () => {
   const { tries, dispatch } = useContext(PokemonContext)
   const [error, setError] = useState(false)
   const [inputValue, setInputValue] = useState('')
-  // const db = firebase.firestore()
 
-  const authentication = (evt: SyntheticEvent | undefined) => {
+  const authentication = async (evt: SyntheticEvent | undefined) => {
     evt!.preventDefault()
     if (!inputValue) {
       setError(true)
       return
     }
-    dispatch({ type: ACTIONS.SHOW_RANKING, payload: { name: '', number: 0 } })
-    setError(false)
+    if (db) {
+      await addScoreInFirebase({ inputValue, tries })
+      dispatch({ type: ACTIONS.SHOW_RANKING, payload: { name: '', number: 0 } })
+      setError(false)
+    }
   }
 
   const handleInput = ({ target }: { target: HTMLInputElement }) => setInputValue(target.value)

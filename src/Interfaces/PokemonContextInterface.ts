@@ -39,3 +39,8 @@ export interface ButtonProps {
   text: string,
   showClassName?: boolean
 }
+
+export interface AddScore {
+  inputValue: string
+  tries: number
+}
