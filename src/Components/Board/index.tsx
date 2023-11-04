@@ -38,9 +38,7 @@ const Board = () => {
       if (hasMatch) dispatch({ type: ACTIONS.UPDATE_MATCHES, payload: { name: '', number: 0 } })
       if (matches === 19) {
         dispatch({ type: ACTIONS.UPDATE_WINNER, payload: { name: '', number: 0 } })
-        confetti()
-        confetti()
-        confetti()
+        confetti({ particleCount: 500 })
       }
     }
   }
